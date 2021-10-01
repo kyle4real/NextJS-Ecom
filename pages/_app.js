@@ -1,6 +1,7 @@
 import { Provider, useSelector } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import store from "../app/store";
+import Layout from "../components/UI/Layout/Layout";
 import { GlobalStyles } from "../styles/globalStyles";
 import { darkTheme, lightTheme } from "../styles/theme";
 
@@ -20,7 +21,9 @@ function MyApp({ Component, pageProps }) {
     return (
         <Provider store={store}>
             <ThemeSetup>
-                <Component {...pageProps} />
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
             </ThemeSetup>
         </Provider>
     );
