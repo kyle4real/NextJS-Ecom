@@ -1,12 +1,13 @@
 import React from "react";
+import ProductGrid from "../components/ProductGrid/ProductGrid";
+import PageLayout from "../components/UI/PageLayout/PageLayout";
 
-const Products = ({ products }) => {
-    console.log(products);
+const Products = ({ productArray }) => {
     return (
         <div>
-            {products.map(({ slug }, index) => (
-                <h3 key={index}>{slug}</h3>
-            ))}
+            <PageLayout>
+                <ProductGrid productArray={productArray} />
+            </PageLayout>
         </div>
     );
 };
@@ -16,7 +17,7 @@ export const getStaticProps = async () => {
     const data = await res.json();
 
     return {
-        props: { products: data.data },
+        props: { productArray: data.data },
     };
 };
 

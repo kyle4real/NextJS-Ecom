@@ -129,7 +129,6 @@ const colorArray = colorData.reduce((r, v) => {
 }, []);
 
 const VariantGrid = () => {
-    console.log(colorArray);
     return (
         <SVariantGrid style={{ gridTemplateColumns: `repeat(${colorArray.length}, 1fr)` }}>
             {colorArray.map((rgb, index) => (

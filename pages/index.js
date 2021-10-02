@@ -3,10 +3,35 @@ import { Fragment } from "react";
 import ProductGrid from "../components/ProductGrid/ProductGrid";
 import PageLayout from "../components/UI/PageLayout/PageLayout";
 
+import vinyl from "./../public/vinyl.png";
+
 const pageHeadData = {
     category: "12 x 12",
     collection: "All Products",
 };
+
+const productArray = [
+    {
+        name: "2pac",
+        price: 50,
+        imgUrl: vinyl,
+    },
+    {
+        name: "Beatles",
+        price: 50,
+        imgUrl: vinyl,
+    },
+    {
+        name: "ACDC",
+        price: 50,
+        imgUrl: vinyl,
+    },
+    {
+        name: "Biggie",
+        price: 50,
+        imgUrl: vinyl,
+    },
+];
 
 export default function Home() {
     return (
@@ -17,7 +42,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <PageLayout>
-                <ProductGrid />
+                <ProductGrid productArray={productArray} />
             </PageLayout>
         </Fragment>
     );

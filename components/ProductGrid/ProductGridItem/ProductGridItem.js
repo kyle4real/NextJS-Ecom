@@ -14,14 +14,19 @@ import {
     SVariantSelection2,
 } from "./styles";
 
-import vinyl from "./../../../public/vinyl.png";
 import VariantGrid from "./VariantGrid/VariantGrid";
 
 const ProductGridItem = ({ product }) => {
     const variantOne = false;
     return (
         <SProductGridItem>
-            <Image src={vinyl} alt="2pac Vinyl" layout="responsive" />
+            <Image
+                src={product.imgUrl}
+                alt={`${product.name} vinyl design`}
+                width={550}
+                height={550}
+                priority
+            />
             <VariantGrid />
             {variantOne && (
                 <SProductContent>
