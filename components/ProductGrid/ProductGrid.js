@@ -5,7 +5,7 @@ import { SProductGrid } from "./styles";
 const ProductGrid = ({ productArray }) => {
     return (
         <SProductGrid>
-            {productArray.slice(0, 10).map((product, index) => (
+            {productArray.slice(0, 25).map((product, index) => (
                 <Fragment key={index}>
                     <ProductGridItem product={product} />
                 </Fragment>
