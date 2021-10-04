@@ -23,9 +23,9 @@ const ProductGridItem = ({ product }) => {
             <Image
                 src={product.imgUrl}
                 alt={`${product.name} vinyl design`}
-                width={550}
-                height={550}
-                priority
+                width={600}
+                height={600}
+                loading={"lazy"}
             />
             <VariantGrid />
             {variantOne && (

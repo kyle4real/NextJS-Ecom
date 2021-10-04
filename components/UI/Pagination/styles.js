@@ -6,9 +6,11 @@ import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 
 export const SPagination = styled.ul`
     display: flex;
+    justify-content: center;
     list-style: none;
     padding: 0;
     line-height: 100%;
+    margin: ${v.lgSpacing} 0 ${v.mdSpacing};
 `;
 export const SPaginationNumber = styled.li``;
 export const SPaginationLink = styled.button`
@@ -21,14 +23,15 @@ export const SPaginationLink = styled.button`
     justify-content: center;
     align-items: center;
     font-family: inherit;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 600;
     color: ${({ theme, active }) => (!active ? theme.text : theme.primary)};
     cursor: ${({ dots }) => (dots ? "initial" : "pointer")};
     line-height: 100%;
-    box-shadow: ${({ theme, active }) => (active ? `inset 0 -1px 0 ${theme.primary}` : "none")};
+    box-shadow: ${({ theme, active }) => (active ? `inset 0 -2px 0 ${theme.primary}` : "none")};
     :hover {
         background: ${({ theme, active, dots }) =>
-            dots ? "transparent" : active ? theme.primaryHighlightDark : theme.primaryHighlight};
+            dots ? "transparent" : active ? theme.bg : theme.bg2};
     }
 
     @media ${b.md} {
@@ -68,4 +71,12 @@ export const SArrowLeft = styled(AiOutlineLeft)`
 
 export const SArrowRight = styled(AiOutlineRight)`
     ${iconStyle}
+`;
+
+export const SPageAmount = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+export const SPageAmountSpan = styled.span`
+    font-size: 14px;
 `;

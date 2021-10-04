@@ -5,11 +5,14 @@ const productSlice = createSlice({
     initialState: {
         products: [],
         pagination: {
-            perPage: 15,
+            perPage: 12,
             currentPage: 1,
         },
     },
     reducers: {
+        replaceProducts(state, action) {
+            state.products = action.payload;
+        },
         // PAGINATION
         changePerPage(state, action) {
             state.pagination.perPage = action.payload;

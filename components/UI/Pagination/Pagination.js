@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { usePagination, DOTS } from "../../../hooks/usePagination";
@@ -8,6 +9,8 @@ import {
     SPaginationNumber,
     SPaginationLink,
     SArrowRight,
+    SPageAmount,
+    SPageAmountSpan,
 } from "./styles";
 
 const perPageOptions = ["10", "20", "50", "all"];
@@ -28,58 +31,63 @@ const Pagination = ({ totalCount, sliceActions, slice }) => {
         perPage,
     });
 
-    // if (currentPage === 0 || paginationRange.length < 2) return null;
-
     const onNext = () => {
         dispatch(sliceActions.incrementCurrentPage());
+        window.scrollTo(0, 0);
     };
     const onPrevious = () => {
         dispatch(sliceActions.decrementCurrentPage());
+        window.scrollTo(0, 0);
     };
     const onPageChange = (number) => {
         dispatch(sliceActions.changeCurrentPage(number));
+        window.scrollTo(0, 0);
     };
-    // const onPerPageChange = (option) => {
-    // setDropdown(false);
-    // dispatch(tableActions.changeCurrentPage(1));
-    // if (option === "all") {
-    //     dispatch(tableActions.changePerPage(totalCount));
-    // } else {
-    //     dispatch(tableActions.changePerPage(parseInt(option)));
-    // }
-    // };
+
+    let { firstIndex, lastIndex } = useMemo(() => {
+        let lastIndex = currentPage * perPage;
+        let firstIndex = lastIndex - perPage + 1;
+        return { lastIndex, firstIndex };
+    }, [currentPage, perPage]);
 
     let lastPage = paginationRange[paginationRange.length - 1];
     return (
-        <SPagination>
-            <SPaginationArrow left onClick={onPrevious} disabled={currentPage === 1}>
-                <SArrowLeft />
-            </SPaginationArrow>
-            {paginationRange.map((number, index) => {
-                if (number === DOTS) {
+        <>
+            <SPagination>
+                <SPaginationArrow left onClick={onPrevious} disabled={currentPage === 1}>
+                    <SArrowLeft />
+                </SPaginationArrow>
+                {paginationRange.map((number, index) => {
+                    if (number === DOTS) {
+                        return (
+                            <SPaginationNumber key={index}>
+                                <SPaginationLink disabled dots>
+                                    &#8230;
+                                </SPaginationLink>
+                            </SPaginationNumber>
+                        );
+                    }
                     return (
                         <SPaginationNumber key={index}>
-                            <SPaginationLink disabled dots>
-                                &#8230;
+                            <SPaginationLink
+                                onClick={() => onPageChange(number)}
+                                active={number === currentPage}
+                            >
+                                {number}
                             </SPaginationLink>
                         </SPaginationNumber>
                     );
-                }
-                return (
-                    <SPaginationNumber key={index}>
-                        <SPaginationLink
-                            onClick={() => onPageChange(number)}
-                            active={number === currentPage}
-                        >
-                            {number}
-                        </SPaginationLink>
-                    </SPaginationNumber>
-                );
-            })}
-            <SPaginationArrow right onClick={onNext} disabled={currentPage === lastPage}>
-                <SArrowRight />
-            </SPaginationArrow>
-        </SPagination>
+                })}
+                <SPaginationArrow right onClick={onNext} disabled={currentPage === lastPage}>
+                    <SArrowRight />
+                </SPaginationArrow>
+            </SPagination>
+            <SPageAmount>
+                <SPageAmountSpan>
+                    Viewing {firstIndex} - {lastIndex} of {totalCount} products
+                </SPageAmountSpan>
+            </SPageAmount>
+        </>
     );
 };
 

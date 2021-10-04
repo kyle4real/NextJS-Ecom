@@ -10,8 +10,8 @@ export const SHeaderFixed = styled.header`
     left: 0;
     right: 0;
     z-index: 1000;
-    /* background: ${({ theme }) => theme.bg2}; */
-    box-shadow: 0 2px 2px ${({ theme }) => theme.bg2};
+    background: ${({ theme }) => theme.bg};
+    box-shadow: ${v.buttonActiveBoxShadow};
 `;
 
 export const SHeaderMain = styled.div`
