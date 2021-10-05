@@ -48,16 +48,3 @@ export const SRightIcon = styled(AiOutlineRight)`
     right: -15px;
     top: calc(50% - 8px);
 `;
-
-export const SImagesContainer = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-`;
-export const SImageContainer = styled.div`
-    display: flex;
-    border: 8px solid black;
-    margin: ${v.lgSpacing};
-    padding: 1px;
-    box-shadow: ${v.buttonBoxShadow};
-`;
