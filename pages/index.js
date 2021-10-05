@@ -1,39 +1,19 @@
 import Head from "next/head";
 import { Fragment } from "react";
 import BackdropCycle from "../components/BackdropCycle/BackdropCycle";
-import ProductGrid from "../components/ProductGrid/ProductGrid";
+import LimitedRunDisplay from "../components/LimitedRunDisplay/LimitedRunDisplay";
+
 import HomeDisplay from "../components/UI/HomeDisplay/HomeDisplay";
-import PageLayout from "../components/UI/PageLayout/PageLayout";
 
-import vinyl from "./../public/vinyl.png";
-
-const pageHeadData = {
-    category: "12 x 12",
-    collection: "All Products",
+const headContent1218 = {
+    category: "12 x 18",
+    title: "Limited Run",
+    tagline: "Framed with album cover art",
+    cta: {
+        text: "Browse",
+        href: "/products",
+    },
 };
-
-const productArray = [
-    {
-        name: "2pac",
-        price: 50,
-        imgUrl: vinyl,
-    },
-    {
-        name: "Beatles",
-        price: 50,
-        imgUrl: vinyl,
-    },
-    {
-        name: "ACDC",
-        price: 50,
-        imgUrl: vinyl,
-    },
-    {
-        name: "Biggie",
-        price: 50,
-        imgUrl: vinyl,
-    },
-];
 
 export default function Home() {
     return (
@@ -45,6 +25,9 @@ export default function Home() {
             </Head>
             <HomeDisplay>
                 <BackdropCycle />
+            </HomeDisplay>
+            <HomeDisplay headContent={headContent1218}>
+                <LimitedRunDisplay />
             </HomeDisplay>
         </Fragment>
     );

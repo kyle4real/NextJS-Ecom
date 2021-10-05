@@ -8,6 +8,13 @@ export const SProductGridItem = styled.div`
     align-self: center;
 `;
 
+export const SImageContainer = styled.div`
+    display: flex;
+    border: 8px solid black;
+    padding: 1px;
+    box-shadow: ${v.buttonBoxShadow};
+`;
+
 // VARIANT ONE
 export const SProductContent = styled.div`
     padding: ${v.smSpacing};

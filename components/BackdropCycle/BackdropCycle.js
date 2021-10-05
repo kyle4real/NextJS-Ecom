@@ -12,7 +12,7 @@ const initialColors = colorData.reduce(
 );
 
 const BackdropCycle = () => {
-    const [colors, setColors] = useState(initialColors.slice(0, 5));
+    const [colors, setColors] = useState(initialColors.slice(0, 4));
 
     const colorHandler = useCallback(() => {
         setColors((p) => {
@@ -38,9 +38,9 @@ const BackdropCycle = () => {
                     <Image
                         src={vinyl}
                         alt={`Vinyl design`}
-                        width={300}
-                        height={300}
-                        layout={"fixed"}
+                        // width={300}
+                        // height={300}
+                        // layout={"fixed"}
                     />
                 </SImageContainer>
             ))}

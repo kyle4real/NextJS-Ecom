@@ -12,7 +12,7 @@ export const SProductGrid = styled.div`
         grid-template-columns: repeat(3, 1fr);
     }
     @media ${b.lg} {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
     width: 100%;
 `;

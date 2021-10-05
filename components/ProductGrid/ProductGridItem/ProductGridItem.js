@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 import {
+    SImageContainer,
     SProductContent,
     SProductContent2,
     SProductGridItem,
@@ -20,13 +21,15 @@ const ProductGridItem = ({ product }) => {
     const variantOne = false;
     return (
         <SProductGridItem>
-            <Image
-                src={product.imgUrl}
-                alt={`${product.name} vinyl design`}
-                width={600}
-                height={600}
-                loading={"lazy"}
-            />
+            <SImageContainer>
+                <Image
+                    src={product.imgUrl}
+                    alt={`${product.name} vinyl design`}
+                    width={600}
+                    height={600}
+                    loading={"lazy"}
+                />
+            </SImageContainer>
             <VariantGrid />
             {variantOne && (
                 <SProductContent>

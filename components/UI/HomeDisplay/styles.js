@@ -7,6 +7,10 @@ import { AiOutlineRight } from "react-icons/ai";
 export const SHomeDisplay = styled.div`
     background: white;
     overflow: hidden;
+
+    :not(:last-child) {
+        margin-bottom: ${v.mdSpacing};
+    }
 `;
 
 export const SHead = styled.div`
