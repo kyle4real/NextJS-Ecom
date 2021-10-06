@@ -5,11 +5,17 @@ import { v } from "../../../styles/variables";
 import { AiOutlineRight } from "react-icons/ai";
 
 export const SHomeDisplay = styled.div`
+    padding: ${v.lgSpacing} 0;
     background: white;
     overflow: hidden;
 
     :not(:last-child) {
-        margin-bottom: ${v.mdSpacing};
+        border-bottom: ${v.mdSpacing} solid ${({ theme }) => theme.primary};
+    }
+
+    :nth-child(even) {
+        background: ${({ theme }) => theme.text};
+        color: ${({ theme }) => theme.textInvert};
     }
 `;
 
@@ -19,6 +25,8 @@ export const SHead = styled.div`
     align-items: center;
     text-align: center;
     padding: ${v.lgSpacing} 0;
+    position: relative;
+    z-index: 10;
 `;
 
 export const SCategory = styled.span`

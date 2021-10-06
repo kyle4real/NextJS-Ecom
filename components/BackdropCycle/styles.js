@@ -10,11 +10,10 @@ export const SImagesContainer = styled.div`
     display: grid;
     gap: ${v.smSpacing};
     padding: ${v.smSpacing};
-    grid-template-columns: repeat(2, minmax(auto, 300px));
+    grid-template-columns: repeat(2, minmax(auto, 250px));
     justify-content: center;
 
     @media ${b.sm} {
-        grid-template-columns: repeat(2, minmax(auto, 300px));
         gap: ${v.mdSpacing};
         padding: ${v.mdSpacing};
     }

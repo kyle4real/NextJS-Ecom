@@ -6,6 +6,7 @@ import {
     SImageContainer,
     SLeftImage,
     SLeftImageContainer,
+    SRelativeContainer,
     SRightImage,
     SRightImageContainer,
 } from "./styles";
@@ -17,19 +18,17 @@ import RS from "./../../public/rs.jpg";
 const LimitedRunDisplay = () => {
     return (
         <SImageContainer>
-            <SLeftImageContainer>
-                <SLeftImage>
-                    <Image src={LZ} alt="Led zep" />
-                </SLeftImage>
-            </SLeftImageContainer>
             <SCenterImage>
                 <Image src={RS} alt="rolling stones" />
             </SCenterImage>
-            <SRightImageContainer>
+            <SRelativeContainer>
+                <SLeftImage>
+                    <Image src={LZ} alt="Led zep" />
+                </SLeftImage>
                 <SRightImage>
                     <Image src={JA} alt="jefferson air" />
                 </SRightImage>
-            </SRightImageContainer>
+            </SRelativeContainer>
         </SImageContainer>
     );
 };

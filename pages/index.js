@@ -15,6 +15,16 @@ const headContent1218 = {
     },
 };
 
+const headContentCustom = {
+    category: "CUSTOM",
+    title: "Custom Design",
+    tagline: "Framed with any backdrop color.",
+    cta: {
+        text: "Browse",
+        href: "/products",
+    },
+};
+
 export default function Home() {
     return (
         <Fragment>
@@ -29,6 +39,7 @@ export default function Home() {
             <HomeDisplay headContent={headContent1218}>
                 <LimitedRunDisplay />
             </HomeDisplay>
+            <HomeDisplay headContent={headContentCustom}></HomeDisplay>
         </Fragment>
     );
 }
